@@ -1,15 +1,10 @@
 import Input from "../components/Input"
 import Button from "../components/Button"
-import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
-import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorInput from "../components/ErrorInput";
-import z from "zod";
-
-const signInSchema = z.object({
-  email: z.string().nonempty("Email is required").email("Invalid email").toLowerCase(),
-  passowrd: z.string().min(8, "Password must be at least 8 characters"),
-});
+import { signInSchema } from "../schemas/SignInSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Link } from "react-router-dom"
+import { useForm } from "react-hook-form"
 
 export default function SignIn() {
   const {
@@ -38,7 +33,7 @@ export default function SignIn() {
           register={register}
           placeholder="Password"
         />
-        {errors.passowrd && <ErrorInput text={errors.passowrd.message} />}
+        {errors.password && <ErrorInput text={errors.password.message} />}
         <Button
           type="submit"
           label="Sign In"
