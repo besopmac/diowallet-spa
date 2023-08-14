@@ -3,8 +3,11 @@ import Button from "../components/Button"
 import ErrorInput from "../components/ErrorInput";
 import { signInSchema } from "../schemas/SignInSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
+import { signIn } from "../services/user";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 export default function SignIn() {
   const {
@@ -13,9 +16,21 @@ export default function SignIn() {
     formState: { errors }
   } = useForm({ resolver: zodResolver(signInSchema) });
 
-  function handleSignInForm(data) {
-    console.log(data);
+  const navigate = useNavigate();
+
+  async function handleSignInForm(data) {
+    try {
+      const token = await signIn(data);
+      Cookies.set("token", token.data, { expires: 1 });
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
   }
+
+  useEffect(() => {
+    Cookies.remove("token");
+  }, [])
 
   return (
     <div className="flex flex-col items-center justify-around rounded p-8 w-[35rem] h-[35rem] bg-zinc-900">

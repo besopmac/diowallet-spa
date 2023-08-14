@@ -5,10 +5,18 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import Home from './pages/Home.jsx';
 import SignIn from './pages/SignIn.jsx';
 import SignUp from './pages/SignUp.jsx';
+import NewTransactions from './pages/NewTransactions';
+import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    errorElement: <ErrorPage />,
+  },
   {
     path: "/signin",
     element: <SignIn />,
@@ -16,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/transaction/:type",
+    element: <NewTransactions />,
   }
 ]);
 
