@@ -5,6 +5,7 @@
 ### Made with:
 
 - React
+- TailwindCSS
 - React Router
 - React Hook Form
 - Day.js
