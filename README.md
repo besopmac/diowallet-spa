@@ -1,3 +1,16 @@
+# DioWallet SPA
+
+**DioWallet** is a wallet for controlling financial inputs and outputs with user authentication.
+
+### Made with:
+
+- React
+- React Router
+- React Hook Form
+- Day.js
+- Axios
+- Zod
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
