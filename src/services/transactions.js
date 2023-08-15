@@ -18,3 +18,13 @@ export function createNewTransaction(body) {
 
   return response;
 }
+
+// export function findOneTransaction(id) {
+//   const response = axios.get(`${BASE_URL}/transactions/${id}`, {
+//     headers: { Authorization: `Bearer ${Cookies.get('token')}` }
+//   });
+
+//   return response;
+// }
+
+// export function updateTransaction(id, body) {}

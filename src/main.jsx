@@ -6,11 +6,12 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Home from './pages/Home.jsx';
+import Profile from './pages/Profile';
 import SignIn from './pages/SignIn.jsx';
 import SignUp from './pages/SignUp.jsx';
-import NewTransactions from './pages/NewTransactions';
 import ErrorPage from './pages/ErrorPage';
-import Profile from './pages/Profile';
+import NewTransactions from './pages/NewTransactions';
+import TransactionDetails from './pages/TransactionDetails';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/transaction/:type",
     element: <NewTransactions />,
+  },
+  {
+    path: "/transaction-details/:id",
+    element: <TransactionDetails />,
   }
 ]);
 

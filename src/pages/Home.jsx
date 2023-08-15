@@ -74,9 +74,9 @@ export default function Home() {
                 <li key={index} className="flex justify-between items-start w-full">
                   <span className="flex items-center gap-2">
                     <span className="text-base text-zinc-500">
-                      R$ { dayjs(transaction.created_at).format("DD/MM") }
+                      { dayjs(transaction.created_at).format("DD/MM") }
                     </span>
-                    {transaction.description}
+                    {transaction.description} <Link to={`/transaction-details/${transaction._id}`} className="underline text-blue-500">Details</Link>
                   </span>
                   <span className={
                     `${transaction.type === 'input'
@@ -91,7 +91,7 @@ export default function Home() {
             </div>
             <li className="flex items-center justify-between w-full px-3">
               <span>Balance:</span>
-              <span className={`${balance > 0 ? 'text-green-500' : 'text-red-500'}`}>{balance}</span>
+              <span className={`${balance > 0 ? 'text-green-500' : 'text-red-500'}`}>R$ {balance}</span>
             </li>
           </ul>
         ) : (
