@@ -60,7 +60,9 @@ export default function Home() {
     <main className="flex flex-col items-center justify-center bg-zinc-900 rounded p-8 w-[60rem] h-[35rem] text-2xl">
       <header className="flex items-center justify-end w-full pb-4">
         <div className="flex items-center gap-4 text-white text-2xl">
-          <h1>Olá, { user.name }</h1>
+          <h1>
+            Olá, <Link to="/profile">{ user.name }</Link>
+          </h1>
           <Link to="/signin"><GoSignOut /></Link>
         </div>
       </header>
